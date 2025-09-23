@@ -27,11 +27,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
-      - name: Setup Bun
-        run: curl -fsSL https://bun.sh/install | bash
-      - name: Source bash profile
-        run: source ~/.bashrc && echo "Bash profile sourced"
+      - name: Install Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
       - name: Install dependencies
-        run: |
-          source ~/.bashrc
-          bun install
+        run: bun install
