@@ -29,7 +29,9 @@ jobs:
         uses: actions/checkout@v5
       - name: Setup Bun
         run: curl -fsSL https://bun.sh/install | bash
-      - name: source bash
-        run: source ~/.bashrc 
-      - name: Install  dependencies
-        run: bun install
+      - name: Source bash profile
+        run: source ~/.bashrc && echo "Bash profile sourced"
+      - name: Install dependencies
+        run: |
+          source ~/.bashrc
+          bun install
